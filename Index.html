@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+  <style>
+    body,html{
+        height: 100;
+        min-height: 100vh;
+        margin: 0;
+        background-image: linear-gradient(white,#FEF6C4);
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    
+    .MainDiv{
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+    }
+
+    .LargeTitle{
+        color:black;
+        padding-top: 3px;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: x-large;
+        text-align: center;
+        margin: 0;
+        
+    }
+    .SmallTitle{
+        margin: 0;
+        padding: 3px;
+        
+        color:gray;
+        font-family: 'Courier New', Courier, monospace;
+        font-size: large;
+        text-align: center;
+    }
+    table{
+        border-collapse:collapse;
+        text-align: center;
+        border: 1px solid black;
+        color:black;
+        width: 100%;
+        table-layout:auto;
+        
+    }
+    th{
+        background-color: orange;
+
+    }
+    td{
+        border: 1px solid black;
+        padding: 5px
+    }
+
+    .CopyRight{
+        text-align: center;
+        color:black;
+        margin-top:30px;
+        font-family: 'Courier New', Courier, monospace;
+
+    }
+
+    .LinkToWebsite{
+        text-align: center;
+        color:gray
+    }
+    @keyframes ShowLink {
+       from{opacity: 0;}
+       to{opacity: 1;}
+    }
+
+    .LinkToWebsite:hover::after{
+        content:": www.nathanyin.com";
+        animation-name: ShowLink;
+        animation-duration: 1s;
+    }
+    .CastLOGO{
+        max-width: fit-content;
+        margin-left: auto;
+        margin-right: auto;
+    }
+   
+</style>
+</head>
+
+
+<body>
+
+    <h1 class="LargeTitle">Class Time Table</h1>
+    <h2 class="SmallTitle">CAST Form 10C3</h2>
+    <div class="MainDiv">
+        <table>
+            <thead>
+                <tr> <!--Day of week-->
+                    <th>Time</th>
+                    <th>Monday</th>
+                    <th>Tuesday</th>
+                    <th>Wednesday</th>
+                    <th>Thursday</th>
+                    <th>Friday</th>
+                </tr>
+        </thead>
+        <tbody>
+            <tr><!--Time of classes-->
+                <td>08:50-09:40</td>
+                <td>Chemistry</td>
+                <td>English</td>
+                <td>Challenge</td>
+                <td>Biology</td>
+                <td>Mathmatics</td> 
+            </tr>
+            <tr>
+                <td>09:40-10:30</td>
+                <td>English</td>
+                <td>Physics</td>
+                <td>Challenge</td>
+                <td>Private Study</td>
+                <td>Biology</td>
+
+            <tr>
+                <td>10:50-11:40</td>
+                <td>Phys Ed</td>
+                <td>Mathmatics</td>
+                <td>Geography</td>
+                <td>Challenge</td>
+                <td>Geography</td>
+
+            </tr>
+            <tr>
+                <td>11:40-12:30</td>
+                <td>English</td>
+                <td>English</td>
+                <td>Geography</td>
+                <td>Challenge</td>
+                <td>Chemistry</td>
+
+            </tr>
+            <tr>
+                <td>13:10-14:00</td>
+                <td>Computer Science</td>
+                <td>Physics</td>
+                <td>English</td>
+                <td>Mathmatics</td>
+                <td>Private Study</td>
+            </tr>
+            <tr>
+                <td>14:50-15:40</td>
+                <td>Mathmatics</td>
+                <td>Biology</td>
+                <td>Mathmatics</td>
+                <td></td>
+                <td></td>
+            </tr>
+        </tbody>
+        </table>
+        <p class="CopyRight">Nathan Yin © 2025. All rights reserved</p>
+        <p class="LinkToWebsite">Hover To Show My Website</p>
+        <img clas="CastLOGO" src="https://www.cambridgeast.org.uk/portals/0/CASTlogo.png"/>
+    </div>
+
+</body>
+</html>
