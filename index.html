@@ -5,65 +5,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>清华附中郑州学校 - VEX机器人项目</title>
     <style>
-        /* 页面加载时的淡入动画 */
+        .BigTitle {
+            font-family: 'KaiTi_GB2312', 'Microsoft YaHei', Arial, sans-serif;
+        }
         body {
             font-family: 'Microsoft YaHei', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background: linear-gradient(white, white);
+            background:linear-gradient(rgb(255, 255, 255),rgb(255,255,255));/*方便未来扩展渐变*/
             color: #333;
-            transition: background-color 0.3s ease;
-            opacity: 0;
-            animation: fadeIn 1s forwards; /* 页面淡入动画 */
         }
-
-        /* 定义页面淡入动画 */
-        @keyframes fadeIn {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        /* BigTitle样式 */
-        .BigTitle {
-            font-family: 'KaiTi_GB2312', 'Microsoft YaHei', Arial, sans-serif;
-        }
-
-        /* 页面容器 */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 20px;
+            
         }
-
-        /* 页头样式 */
         header {
             background-color: #7F1F7F;
             color: white;
-            padding: 20px 0;
+            /* padding: 20px 0; */
             text-align: center;
-            margin-bottom: 30px;
+            margin-bottom: 70px;
             position: relative;
-            transition: all 0.3s ease;
+            box-shadow: 0px 0px 14px 0px #7F1F7F;
         }
-
         .logo {
-            position: absolute;
+            
             left: 20px;
             top: 10px;
             height: 60px;
-            transition: transform 0.3s ease; /* logo的动画 */
         }
-
         h1 {
             margin: 0;
             font-size: 2.5em;
         }
-
-        /* 模块样式 */
         .module {
             background-color: white;
             border-radius: 8px;
@@ -72,20 +48,8 @@
             margin-bottom: 20px;
             overflow: hidden;
             cursor: pointer;
-            opacity: 0;
-            animation: fadeInModule 1s forwards; /* 模块淡入 */
+            transition: all 0.3s ease;
         }
-
-        @keyframes fadeInModule {
-            0% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        /* 模块头部样式 */
         .module-header {
             padding: 20px;
             background-color: #7F1F7F;
@@ -95,14 +59,10 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            transition: background-color 0.3s ease;
         }
-
         .module-header:hover {
             background-color: #9F3F9F;
         }
-
-        /* 模块内容样式 */
         .module-content {
             padding: 0;
             max-height: 0;
@@ -112,65 +72,92 @@
 
         .module.active .module-content {
             padding: 20px;
-            max-height: 500px; /* 滚动条 */
+            max-height: 300px; /*滚动条*/
+            overflow-y: auto; /*垂直*/
+        }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+.gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+        .module.active .module-content {
+            padding: 20px;
+            max-height: 500px;
         }
 
-        /* 箭头样式 */
         .arrow {
             transition: transform 0.5s ease;
         }
-
         .module.active .arrow {
             transform: rotate(180deg);
         }
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+.gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 15px;
+  margin: 20px 0;
+}
+.gallery img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* 确保页面最小高度为视窗高度 */
+    margin: 0;
+}
 
-        /* 图库样式 */
-        .gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 15px;
-            margin: 20px 0;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out; /* 图片淡入动画 */
-        }
+.container {
+    flex: 1; /* 主内容区域填充剩余空间 */
+}
 
-        .module.active .gallery {
-            opacity: 1;
-        }
-
-        /* 图像样式 */
-        .gallery img {
-            width: 100%;
-            height: 180px;
-            object-fit: cover;
-            border-radius: 4px;
-            transition: transform 0.3s ease;
-        }
-
-        .gallery img:hover {
-            transform: scale(1.05); /* 图片放大效果 */
-        }
-
-        /* 页脚样式 */
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding: 20px;
-            background-color: #7F1F7F;
-            color: white;
-            width: 100%;
-            position: relative;
-            bottom: 0;
-            left: 0;
-            transition: background-color 0.3s ease;
-        }
+footer {
+    text-align: center;
+    /* padding: 20px; */
+    
+    background: linear-gradient(to right, rgb(121,16,133),rgb(152,14,120));
+    width: 100%;
+    margin-top: auto; /* 确保 footer 始终在页面底部 */
+    /* box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5); */
+    
+}
+.FooterImg {
+    /* transform: scale(1.5); */
+    margin-top: auto;
+    /* width: 600px; */
+    /* height: auto; */
+}
     </style>
 </head>
 <body>
     <header>
-        <img src="https://q6.itc.cn/q_70/images03/20240911/a014dc8d589845f98fcd3da959807a23.png" alt="清华附中郑州学校校徽" class="logo">
+        
         <div class="container">
-            <h1 class="BigTitle">清华附中郑州学校 VEX机器人项目</h1>
+            <img src="https://www.qhfzzzxx.com/cms/template/39/default/images/logo-white.png" alt="清华附中郑州学校校徽" class="logo">
+            <h1 class="BigTitle">VEX 机器人大赛项目</h1>
         </div>
     </header>
 
@@ -184,14 +171,17 @@
                 <p>清华附中郑州学校是清华大学附属中学在郑州设立的分校，秉承清华附中"自强不息，厚德载物"的校训，致力于培养德智体美劳全面发展的优秀人才。</p>
                 <p>学校拥有先进的教学设施、优秀的师资队伍和丰富的课程体系，为学生提供优质的教育资源和成长平台。</p>
                 <p>清华附中郑州学校注重科技创新教育，开设了机器人、编程、人工智能等特色课程，培养学生的创新精神和实践能力。</p>
-                <div class="gallery">
-                    <img src="https://q1.itc.cn/q_70/images03/20240912/2878607e1c8049418fc2c906ebb2a35a.png" alt="校园全景">
-                    <img src="https://www1.haedu.cn/uploads/ieduimg/20231215/170261312628218.jpg?radom=0.6792863554211763" alt="校园全景2">
-                    <img src="https://gips1.baidu.com/it/u=827826496,3583036430&fm=3074&app=3074&f=JPEG?w=1080&h=537&type=normal&func=" alt="校园地图">
-                </div>
+<div class="gallery">
+<img src="https://q1.itc.cn/q_70/images03/20240912/2878607e1c8049418fc2c906ebb2a35a.png"alt="校园全景">
+<img src="https://www1.haedu.cn/uploads/ieduimg/20231215/170261312628218.jpg?radom=0.6792863554211763"alt="校园全景2">
+<img src="https://gips1.baidu.com/it/u=827826496,3583036430&fm=3074&app=3074&f=JPEG?w=1080&h=537&type=normal&func="alt="校园地图">
             </div>
         </div>
     
+</div>
+
+    
+
         <div class="module" onclick="toggleModule(this)">
             <div class="module-header">
                 <span>了解VEX机器人项目</span>
@@ -202,14 +192,15 @@
                 <p>VEX机器人项目通过设计、搭建和编程机器人，培养学生的STEM(科学、技术、工程和数学)能力、团队协作能力和创新思维。</p>
                 <p>清华附中郑州学校VEX机器人团队多次参加国内外比赛并取得优异成绩，为学生提供了展示才华的国际舞台。</p>
                 <p>VEX机器人项目不仅是一项科技竞赛，更是一个培养未来科技创新人才的重要平台。</p>
-                <div class="gallery">
-                    <img src="https://img0.baidu.com/it/u=1444673583,1996672027&fm=253&fmt=auto&app=120&f=JPEG?w=889&h=500" alt="VEXlogo">
-                    <img src="https://pic.rmb.bdstatic.com/bjh/news/77f54916ad59728159cfe6535254b3ed.jpeg" alt="VEXWORLDPHOTO">
-                    <img src="https://i0.hdslb.com/bfs/archive/a57c7102a5d882b5d0e67a1aa6dc261099bfe1d9.jpg" alt="VEXFINALSPHOTO">
-                    <img src="https://pic.rmb.bdstatic.com/b0d1a20b9e912cd1270e54f6525f91a3.jpeg" alt="VEXCHAMPIONSPHOTO">
-                </div>
+<div class="gallery">
+<img src="https://img0.baidu.com/it/u=1444673583,1996672027&fm=253&fmt=auto&app=120&f=JPEG?w=889&h=500"alt="VEXlogo">
+<img src ="https://pic.rmb.bdstatic.com/bjh/news/77f54916ad59728159cfe6535254b3ed.jpeg"alt="VEXWORLDPHOTO">
+<img src ="https://i0.hdslb.com/bfs/archive/a57c7102a5d882b5d0e67a1aa6dc261099bfe1d9.jpg"alt="VEXFINALSPHOTO">
+<img src="https://pic.rmb.bdstatic.com/b0d1a20b9e912cd1270e54f6525f91a3.jpeg"alt="VEXCHAMPIONSPHOTO">
             </div>
         </div>
+</div>
+
 
         <div class="module" onclick="toggleModule(this)">
             <div class="module-header">
@@ -221,22 +212,21 @@
                 <p>我们的VEX机器人团队由经验丰富的指导老师和充满热情的学生组成，定期开展训练、研讨和比赛准备活动。</p>
                 <p>在城市选拔赛，世界机器人大会（WRC），国赛及国际赛中20901（本校队伍编号）均获得良好成绩。</p>
                 <p>通过参与VEX项目，我们的学生不仅获得了技术能力的提升，更培养了解决问题的能力、团队协作精神、交流沟通能力和国际视野。</p>
-                <p>我们欢迎对机器人技术感兴趣的同学加入我们的团队，共同探索科技创新的无限可能，一同克服困难助力成长！</p>
-                <div class="module-content">
-                    <h3>2024第二届VEX机器人挑战赛全国邀请赛 博思杭电杯</h3>
-                    <div class="gallery">
-                        <img src="https://raw.githubusercontent.com/zibuyin/Assets_Pastebin/main/SaiChang.jpg" alt="hangdianquanjing">
-                        <img src="https://raw.githubusercontent.com/zibuyin/Assets_Pastebin/main/WeiLan.jpg" alt="hangdianhuanjing1">
-                        <img src="https://raw.githubusercontent.com/zibuyin/Assets_Pastebin/main/BiSai.jpg" alt="hangdianFinal">
-                        <img src="https://raw.githubusercontent.com/zibuyin/Assets_Pastebin/main/7aad83c6eb9771ab6fa1790ccaea7fbd.jpg" alt="hangdianbeijiang">
-                    </div>
-                </div>
+                <p>我们欢迎对机器人技术感兴趣的同学加入我们的团队，共同探索科技创新的无限可能，一同克服困难 助力成长！</p>
+<div class="module-content">
+  <h3>2024第二届VEX机器人挑战赛全国邀请赛 博思杭电杯</h3>
+<div class="gallery">
+<img src="https://raw.githubusercontent.com/zibuyin/Assets_Pastebin/main/SaiChang.jpg"alt="hangdianquanjing">
+<img src ="https://raw.githubusercontent.com/zibuyin/Assets_Pastebin/main/WeiLan.jpg"alt="hangdianhuanjing1">
+<img src ="https://raw.githubusercontent.com/zibuyin/Assets_Pastebin/main/BiSai.jpg"alt="hangdianFinal">
+<img src="https://raw.githubusercontent.com/zibuyin/Assets_Pastebin/main/LingJiang.jpg"alt="hangdianbeijiang">
             </div>
         </div>
     </div>
-
+</div>
+</div>
     <footer>
-        <p>© 2023 清华附中郑州学校 VEX机器人团队 | 联系我们: example@thzz.edu.cn</p>
+       <img class="FooterImg"src="https://raw.githubusercontent.com/zibuyin/Assets_Pastebin/main/footer.png">
     </footer>
 
     <script>
@@ -246,19 +236,10 @@
             // 关闭其他打开的模块
             const allModules = document.querySelectorAll('.module');
             allModules.forEach(m => {
-                if (m !== module && m.classList.contains('active')) {
+                if(m !== module && m.classList.contains('active')) {
                     m.classList.remove('active');
                 }
             });
-    
-            // 如果模块被激活，滚动到模块位置
-            if (module.classList.contains('active')) {
-                module.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
         }
     </script>
 </body>
-</html>
